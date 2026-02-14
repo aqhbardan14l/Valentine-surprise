@@ -6,8 +6,7 @@
     <title>For My Love ❤️</title>
     <style>
         /* CSS Reset to ensure it looks the same on all phones */
-        * margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; 
-        
+        * {margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
       body {
             background-color: #fff1f2;
             display: flex;
@@ -16,7 +15,6 @@
             height: 100vh;
             overflow: hidden;
         }
-
         .container {
             background: white;
             padding: 30px;
@@ -27,14 +25,11 @@
             text-align: center;
             border: 2px solid #fecdd3;
         }
-
         /* Logic to hide/show pages */
         .page { display: none; }
         .active { display: block !important; }
-
         h1 { color: #be185d; font-size: 1.5rem; margin-bottom: 20px; line-height: 1.3; }
         p { color: #e11d48; margin-bottom: 10px; }
-
         /* Big Heart Animation */
         .heart-btn {
             font-size: 80px;
@@ -44,13 +39,11 @@
             user-select: none;
             -webkit-tap-highlight-color: transparent;
         }
-
         @keyframes beat {
             0% { transform: scale(1); }
             50% { transform: scale(1.15); }
             100% { transform: scale(1); }
         }
-
         /* Buttons */
         .choice-btn {
             display: block;
@@ -65,36 +58,30 @@
             font-size: 1rem;
             cursor: pointer;
         }
-
         #noBtn {
             background: #f3f4f6;
             color: #9ca3af;
             width: 100px;
             display: inline-block;
         }
-
         .yes-btn {
             width: 100px;
             display: inline-block;
             background: #ec4899;
             color: white;
         }
-
         img { width: 100%; border-radius: 15px; margin-top: 15px; }
-
         /* Rain effect */
         .rain { position: fixed; top: -10%; z-index: -1; pointer-events: none; animation: fall linear forwards; }
         @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
     </style>
 </head>
 <body>
-
     <div id="step1" class="container page active">
         <h1>I have a surprise for you...</h1>
         <div class="heart-btn" onclick="next(2)">💖</div>
         <p>Touch the heart to open</p>
     </div>
-
     <div id="step2" class="container page">
         <h1>Will you be my Valentine? 🌹</h1>
         <div style="margin-top: 20px;">
@@ -102,21 +89,18 @@
             <button id="noBtn" class="choice-btn" onmouseover="dodge()" onclick="dodge()">No</button>
         </div>
     </div>
-
     <div id="step3" class="container page">
         <h1>Pick your gift! ✨</h1>
         <button class="choice-btn" onclick="end('Makeup 💄')">New Makeup 💄</button>
         <button class="choice-btn" onclick="end('Flowers 💐')">Beautiful Flowers 💐</button>
         <button class="choice-btn" onclick="end('Bubu ✨🐱')">Bubu (Glitter Cat) 🐱</button>
     </div>
-
     <div id="step4" class="container page">
         <h1>Yay! ❤️</h1>
         <p>You chose: <span id="giftResult" style="font-weight:bold;"></span></p>
         <p>I love you so much!</p>
         <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJpZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1n/KztT2c4u8mYYUiMKdJ/giphy.gif">
     </div>
-
     <script>
         // Simple function to switch pages
         function next(num) {
@@ -125,14 +109,11 @@
 getElementById('step1').classList.remove('active');
             document.getElementById('step2').classList.remove('active');
             document.getElementById('step3').classList.remove('active');
-            document.getElementById('step4').classList.remove('active');
-            
+            document.getElementById('step4').classList.remove('active');  
             // Show current step
             document.getElementById('step' + num).classList.add('active');
-
-            if(num === 3) startRain();
+     if(num === 3) startRain();
         }
-
         // Runaway "No" button
         function dodge() {
             const b = document.getElementById('noBtn');
@@ -142,13 +123,11 @@ getElementById('step1').classList.remove('active');
             b.style.left = x + 'px';
             b.style.top = y + 'px';
         }
-
         // Final screen
         function end(item) {
             document.getElementById('giftResult').innerText = item;
             next(4);
         }
-
         // Heart Rain
         function startRain() {
             setInterval(() => {
