@@ -6,9 +6,9 @@
     <title>For My Love ❤️</title>
     <style>
         /* CSS Reset to ensure it looks the same on all phones */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        * margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; 
         
-        body {
+      body {
             background-color: #fff1f2;
             display: flex;
             justify-content: center;
